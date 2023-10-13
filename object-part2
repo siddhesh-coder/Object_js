@@ -1,0 +1,68 @@
+//singleton
+const googleUser = new Object();
+
+//just keep in mind that now difference in output but about declaration is in singleton imp for interview
+
+//object literal
+// const googleUser2 = {
+  
+// }
+
+console.log(googleUser); //{}
+// console.log(googleUser2);//{} no difference in output 
+
+
+//nested objects
+
+const obj1 ={
+  name: {
+    fullName: {
+      firstName: "SIDDHESH",
+      lastName: "BHOSALE"
+    }
+  },
+  age: 24,
+  company: "Google"
+}
+//how to access 
+console.log(obj1.name.fullName.firstName); //in this we also can use ternary operator to check if value is not present then what to do like fullname.firstName ? 'Yes' : 'no' ex: console.log(obj1.name.fullName.firstName ? fullName.firstName : 'SIDDHESH' );
+
+//How to combine objects
+const object1 = {1:'a',2:'b'};
+const object2 = {3:'e',4:'d'};
+
+//Object.assign(target, source);
+// const object3 = Object.assign({}, object1,object2);
+
+//OR the best option is to use ...spread oprator
+const object3 = {...object1,...object2};
+
+
+console.log(object3);
+
+//if database is sending data to use it in below format
+
+const users = [{
+  id:1,
+  name: "SIDD1",
+},{
+  id:2,
+  name: "SIDD2",
+},{
+  id:3,
+  name: "SIDD3",
+}];
+
+console.log(users[1].id);
+console.log(users[2].name);
+
+//to get keys and values (most IMP)
+
+console.log(Object.keys(object1));
+console.log(Object.values(object1));
+console.log(Object.entries(object1));
+
+//to check it has a property or not
+
+console.log(object1.hasOwnProperty('1')); //it will return boolean value
+console.log(object1.hasOwnProperty('1a')); //it will return false  
