@@ -1,0 +1,59 @@
+//singleton
+//Object.create note: not explain in this part it is in next part 2 
+
+//object literals
+
+const mySym = Symbol("key1"); //how to use Symbol
+
+const obj1 = {
+  //objects are in key:value pair 
+  //note: object saves pair:value as string "string":"string"
+  
+  name: "John",
+  age: 30,
+  
+  [mySym] : "myKey1", //see the syntax to work as a symbol
+  
+  email: "tugrp@example.com",
+  "Company" : "Google",
+  lastActivites: ["Monday","Saturday"]
+}
+
+//type of accessing the object
+
+console.log(obj1.name); //way 1 to access value note: most of this way is used below are need to know for interviews.
+
+console.log(obj1["Company"]); //way 2
+console.log(obj1["email"]);//best way
+
+console.log(obj1); //it will give whole obj
+
+console.log("Symbol work: "+obj1[mySym]);
+
+for(const i in obj1){//will give you all the keys
+  console.log(i);
+}
+
+//how to change values in object
+obj1.name = "Siddhesh B";
+console.log("new Name: "+obj1.name);
+
+
+//so, you can use value as a function also and object also
+
+obj1.greeting  = function(){
+  console.log("Hello Siddhesh Bhosale ");
+}
+
+obj1.greeting();
+
+obj1.greetingTwo  = function(){
+  console.log(`Hello ${this.name}`);
+}
+obj1.greetingTwo();
+
+//if you not want to change any values from the object then use this
+Object.freeze(obj1);
+
+obj1.name = "Siddhesh Bhosale";
+console.log(" after freeze new Name dont change: "+obj1.name); //now name will not change or any other value in the object
